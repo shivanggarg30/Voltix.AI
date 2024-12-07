@@ -1,0 +1,116 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Get Started</title>  
+    <link rel="stylesheet" href="styles.css">  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>  
+    <style>  
+        /* Always set the map height explicitly to define the size of the div element that contains the map. */  
+        #map {  
+          height: 400px; /* Set a specific height for the map */  
+          width: 100%; /* Set width to fill the container */  
+        }  
+
+        /* Optional: Makes the sample page fill the window. */  
+        html, body {  
+          height: 100%;  
+          margin: 0;  
+          padding: 0;  
+        }  
+
+        .container {  
+          padding: 20px;  
+          max-width: 600px;  
+          margin: auto; /* Center the content */  
+        }  
+
+        .upload-section, .region-section, .weather-section {  
+          margin-bottom: 20px; /* Some space between sections */  
+        }  
+
+        button {  
+          padding: 10px 15px;  
+          background-color: #4CAF50; /* Green background */  
+          color: white; /* White text */  
+          border: none;  
+          cursor: pointer; /* Pointer cursor on hover */  
+        }  
+
+        button:hover {  
+          background-color: #45a049; /* Darker green on hover */  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Get Started</h1>  
+        
+        <form id="data-form">  
+            <div class="upload-section">  
+                <label for="file-upload">Upload CSV or Excel File:</label>  
+                <input type="file" id="file-upload" accept=".csv, .xls, .xlsx">  
+            </div>  
+
+            <div class="region-section">  
+                <label for="region-select">Select Region:</label>  
+                <select id="region-select" required>  
+                    <option value="">--Select a Region--</option>  
+                    <option value="north">North India</option>  
+                    <option value="south">South India</option>  
+                    <option value="east">East India</option>  
+                    <option value="west">West India</option>  
+                    <option value="central">Central India</option>  
+                    <option value="northeast">Northeast India</option>  
+                </select>  
+            </div>  
+
+            <div class="weather-section">  
+                <label for="weather-select">Choose Weather:</label>  
+                <select id="weather-select" required>  
+                    <option value="">--Select Weather--</option>  
+                    <option value="sunny">Sunny</option>  
+                    <option value="rainy">Rainy</option>  
+                    <option value="cloudy">Cloudy</option>  
+                    <option value="stormy">Stormy</option>  
+                </select>  
+            </div>  
+
+            <div class="map-section">  
+                <h2>Select Location on the Map</h2>  
+                <div id="map"></div>  
+            </div>  
+
+            <button type="button" onclick="handleSubmit()">Submit</button>  
+        </form>  
+    </div>  
+
+    <script>  
+      var map;  
+
+      function initMap() {  
+        map = new google.maps.Map(document.getElementById('map'), {  
+          center: {lat: -34.397, lng: 150.644},  
+          zoom: 8  
+        });  
+      }  
+
+      function handleSubmit() {  
+          const fileUpload = document.getElementById('file-upload').files.length;  
+          const region = document.getElementById('region-select').value;  
+          const weather = document.getElementById('weather-select').value;  
+
+          if (fileUpload === 0 || region === "" || weather === "") {  
+              alert("Please fill in all fields and upload a file.");  
+              return; // Stop submission if there are issues  
+          }  
+
+          // Process the form data as necessary here...  
+          // For now, redirect to thank you page  
+          window.location.href = 'thankyou.html';  
+      }  
+    </script>  
+    <script src="mapsJavaScriptAPI.js" async defer></script>  
+</body>  
+</html>

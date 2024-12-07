@@ -1,0 +1,81 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Weather Forecast Dashboard</title>  
+    <link rel="stylesheet" href="styles.css">  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>  
+    <style>  
+        /* Basic styling for the dashboard */  
+        .container {  
+            padding: 20px;  
+            max-width: 800px;  
+            margin: auto;  
+        }  
+
+        #map {  
+            height: 300px;  
+            width: 100%;  
+        }  
+
+        /* Additional styles as needed */  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Weather Forecast Dashboard</h1>  
+
+        <div class="location-selector">  
+            <label for="location-input">Enter Location:</label>  
+            <input type="text" id="location-input" placeholder="e.g., New York, NY">  
+            <button onclick="getWeather()">Get Weather</button>  
+        </div>  
+
+        <div class="weather-info">  
+            <h2>Current Weather</h2>  
+            <div id="current-weather">  
+                <p id="temperature">Temperature: --</p>  
+                <p id="humidity">Humidity: --</p>  
+                <p id="weather-condition">Condition: --</p>  
+            </div>  
+        </div>  
+
+        <div class="forecast">  
+            <h2>5-Day Forecast</h2>  
+            <ul id="forecast-list">  
+                <!-- Forecast data will be populated here -->  
+            </ul>  
+        </div>  
+
+        <div class="map-section">  
+            <h2>Location on Map</h2>  
+            <div id="map"></div>  
+        </div>  
+
+        <div class="upload-section">  
+            <label for="file-upload">Upload Historical Weather Data:</label>  
+            <input type="file" id="file-upload" accept=".csv, .xls, .xlsx">  
+        </div>  
+    </div>  
+
+    <script>  
+        var map;  
+
+        function initMap() {  
+            map = new google.maps.Map(document.getElementById('map'), {  
+                center: {lat: -34.397, lng: 150.644},  
+                zoom: 8  
+            });  
+        }  
+
+        function getWeather() {  
+            const location = document.getElementById('location-input').value;  
+            // Fetch weather data using an API  
+            // Update current weather and forecast sections  
+            // Update map center based on the location  
+        }  
+    </script>  
+    <script src="mapsJavaScriptAPI.js" async defer></script>  
+</body>  
+</html>
